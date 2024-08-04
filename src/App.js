@@ -7,8 +7,10 @@ export default function app() {
     choices: ["JavaScript framework'ü", 'JavaScript kütüphanesi'],
     answer: 'JavaScript kütüphanesi.',
     explanation: `Birinin framework diyebilme cüretini gösterdiğini duyarsanız, onu mümkün olduğunca bilgili bir şekilde düzeltmeniz, tercihen yanıtınıza " aslında..." diye başlamanız önemlidir.`,
+    click: false,
   })
-
+  const className =
+    flashCard.click === true ? 'flash-card flipped' : 'flash-card'
   /* Challenge: 
 
     Flashcard'ın ileri geri çevrilmesi gerekiyor. Göreviniz bunu aşağıdaki gibi ayarlamaktır: 
@@ -23,26 +25,29 @@ export default function app() {
   return (
     <div>
       <header>
-        <img src='./images/react.svg' />
+        <img src="./images/react.svg" />
         <h1> React Çalışma Arkadaşı </h1>
       </header>
 
       {/*-------Aşağıdaki div'i düzenleyin------------*/}
 
-      <div className='flash-card'>
+      <div
+        className={className}
+        onClick={() => setFlashCard((pre) => ({ ...pre, click: !pre.click }))}
+      >
         {/*-------Yukarıdaki div'i düzenleyin------------*/}
 
-        <div className='flash-card-inner'>
-          <div className='flash-card-front'>
-            <p className='question'>{flashCard.question}</p>
-            <ol type='a'>
+        <div className="flash-card-inner">
+          <div className="flash-card-front">
+            <p className="question">{flashCard.question}</p>
+            <ol type="a">
               {flashCard.choices.map((choice) => (
                 <li key={crypto.randomUUID()}>{choice}</li>
               ))}
             </ol>
           </div>
-          <div className='flash-card-back'>
-            <p className='answer'>{flashCard.answer}</p>
+          <div className="flash-card-back">
+            <p className="answer">{flashCard.answer}</p>
             <p>{flashCard.explanation}</p>
           </div>
         </div>
