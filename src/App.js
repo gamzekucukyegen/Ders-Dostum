@@ -9,8 +9,7 @@ export default function app() {
     explanation: `Birinin framework diyebilme cüretini gösterdiğini duyarsanız, onu mümkün olduğunca bilgili bir şekilde düzeltmeniz, tercihen yanıtınıza " aslında..." diye başlamanız önemlidir.`,
     click: false,
   })
-  const className =
-    flashCard.click === true ? 'flash-card flipped' : 'flash-card'
+  const className = flashCard.click ? 'flash-card flipped' : 'flash-card'
   /* Challenge: 
 
     Flashcard'ın ileri geri çevrilmesi gerekiyor. Göreviniz bunu aşağıdaki gibi ayarlamaktır: 
